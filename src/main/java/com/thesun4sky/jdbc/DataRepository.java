@@ -20,12 +20,12 @@ public class DataRepository {
 		jdbcTemplate.update("INSERT INTO users (name) VALUES (?)", name);
 	}
 
-	// 사용자 ID로 이름 조회 (Read)
-	public String findUserNameById(Long id) {
+	// 사용자 ID로 User 조회 (Read)
+	public User findUserById(Long id) {
 		return jdbcTemplate.queryForObject(
-			"SELECT name FROM users WHERE id = ?",
-			new Object[]{id},
-			String.class
+			"SELECT * FROM users WHERE id = ?",
+			new UserRowMapper(), // 이자리에 매퍼를 생성자로 넣어주면 됨
+			id
 		);
 	}
 

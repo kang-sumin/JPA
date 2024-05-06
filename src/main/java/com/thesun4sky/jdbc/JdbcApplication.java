@@ -17,6 +17,6 @@ public class JdbcApplication {
 		// 유저정보 추가
 		repository.insertUser("Teasun Kim");
 		// 유저정보 조회
-		System.out.println("User Name: " + repository.findUserNameById(1L));
+		System.out.println("User: " + repository.findUserById(1L));
 	}
 }
